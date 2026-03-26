@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prime Cut – Precision Aluminium Machining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #2B3FD4;
+      --blue-mid:   #3B52E8;
+      --blue-light: #EEF1FF;
+      --blue-pale:  #F5F7FF;
+      --dark:       #0b0d18;
+      --dark-2:     #10131f;
+      --dark-3:     #181c2e;
+      --dark-4:     #1e2338;
+      --text-w:     #ffffff;
+      --text-w2:    rgba(255,255,255,0.72);
+      --text-w3:    rgba(255,255,255,0.42);
+      --text:       #0E1120;
+      --text-muted: #6B7280;
+      --text-light: #9CA3AF;
+      --border-d:   rgba(255,255,255,0.09);
+      --border:     #E5E8F0;
+      --font-d:     'Syne', sans-serif;
+      --font-b:     'DM Sans', sans-serif;
+      --shadow-lg:  0 16px 48px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.2);
+      --shadow-card:0 4px 20px rgba(14,17,32,0.09), 0 1px 4px rgba(14,17,32,0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text-w);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════ NAV ═══════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 70px;
+      background: rgba(11,13,24,0.82);
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--border-d);
+      transition: background .3s;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-text {
+      font-family: var(--font-d); font-size: 20px; font-weight: 700;
+      color: #fff; line-height: 1.1; letter-spacing: -0.3px;
+    }
+    .logo-text span { display: block; }
+
+    .nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
+    .nav-links a {
+      color: var(--text-w2); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color .18s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .btn-nav {
+      background: var(--blue); color: #fff !important;
+      padding: 9px 22px; border-radius: 6px;
+      font-weight: 600 !important; font-size: 14px !important;
+      transition: background .2s, box-shadow .2s !important;
+    }
+    .btn-nav:hover {
+      background: var(--blue-mid) !important;
+      box-shadow: 0 4px 18px rgba(43,63,212,0.45) !important;
+    }
+
+    /* ═══════════════ HERO ═══════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 130px 6% 90px;
+      overflow: hidden;
+    }
+
+    /* SVG-generated CNC pattern background */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(135deg, rgba(11,13,24,0.96) 0%, rgba(11,13,24,0.7) 55%, rgba(11,13,24,0.85) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='60%25' cy='45%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%232B3FD4' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%230b0d18' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%230b0d18'/%3E%3Crect width='800' height='600' fill='url(%23g1)'/%3E%3Cg stroke='%232B3FD4' stroke-opacity='0.12' stroke-width='1' fill='none'%3E%3Ccircle cx='560' cy='290' r='180'/%3E%3Ccircle cx='560' cy='290' r='140'/%3E%3Ccircle cx='560' cy='290' r='95'/%3E%3Ccircle cx='560' cy='290' r='50'/%3E%3Cline x1='560' y1='110' x2='560' y2='470'/%3E%3Cline x1='380' y1='290' x2='740' y2='290'/%3E%3Cline x1='433' y1='163' x2='687' y2='417'/%3E%3Cline x1='433' y1='417' x2='687' y2='163'/%3E%3C/g%3E%3Cg fill='%232B3FD4' fill-opacity='0.55'%3E%3Ccircle cx='560' cy='290' r='6'/%3E%3Ccircle cx='560' cy='110' r='3'/%3E%3Ccircle cx='560' cy='470' r='3'/%3E%3Ccircle cx='380' cy='290' r='3'/%3E%3Ccircle cx='740' cy='290' r='3'/%3E%3C/g%3E%3Cg stroke='%234B63FF' stroke-opacity='0.07' stroke-width='0.5' fill='none'%3E%3Crect x='50' y='40' width='700' height='520' rx='4'/%3E%3Cline x1='50' y1='130' x2='750' y2='130'/%3E%3Cline x1='50' y1='470' x2='750' y2='470'/%3E%3Cline x1='150' y1='40' x2='150' y2='560'/%3E%3Cline x1='650' y1='40' x2='650' y2='560'/%3E%3C/g%3E%3Cg fill='%23a0b0ff' fill-opacity='0.25' font-family='monospace' font-size='10'%3E%3Ctext x='60' y='58'%3ETOLERANCE: ±0.01mm%3C/text%3E%3Ctext x='60' y='74'%3EMATERIAL: AL6061-T6%3C/text%3E%3Ctext x='60' y='548'%3EPRIME CUT ENGINEERING%3C/text%3E%3Ctext x='560' y='548'%3EREV: A%3C/text%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat;
+    }
+
+    /* Subtle dot grid overlay on left side */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(43,63,212,0.2) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(to right, rgba(0,0,0,0.25) 0%, transparent 55%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(43,63,212,0.2);
+      border: 1px solid rgba(43,63,212,0.5);
+      color: #8ba4ff;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 30px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: #4B63FF;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    .hero h1 {
+      font-family: var(--font-d);
+      font-size: clamp(44px, 5.5vw, 76px);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -2.5px; color: #fff;
+      animation: fadeUp .6s .08s ease both;
+    }
+    .hero h1 em { font-style: normal; color: var(--blue-mid); }
+
+    .hero-sub {
+      margin-top: 22px; font-size: 17px;
+      color: var(--text-w2); max-width: 520px; line-height: 1.75;
+      animation: fadeUp .6s .16s ease both;
+    }
+
+    .hero-actions {
+      margin-top: 40px;
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: fadeUp .6s .24s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue); color: #fff;
+      padding: 14px 30px; border-radius: 7px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, box-shadow .2s, transform .15s;
+    }
+    .btn-primary:hover {
+      background: var(--blue-mid);
+      box-shadow: 0 6px 28px rgba(43,63,212,0.45);
+      transform: translateY(-1px);
+    }
+    .btn-primary svg { width: 17px; height: 17px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff; padding: 14px 28px; border-radius: 7px;
+      font-size: 15px; font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
+    .btn-ghost svg { width: 17px; height: 17px; }
+
+    /* Hero stat strip */
+    .hero-strip {
+      margin-top: 64px;
+      display: inline-flex;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-d);
+      border-radius: 10px; overflow: hidden;
+      animation: fadeUp .6s .34s ease both;
+    }
+    .strip-item {
+      padding: 18px 32px;
+      border-right: 1px solid var(--border-d);
+      text-align: center;
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-num {
+      font-family: var(--font-d);
+      font-size: 26px; font-weight: 800;
+      color: var(--blue-mid); line-height: 1;
+    }
+    .strip-label { font-size: 11px; color: var(--text-w3); margin-top: 4px; letter-spacing: 0.3px; }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(22px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ═══════════════ VALUE BANNER ═══════════════ */
+    .value-banner {
+      background: var(--blue);
+      padding: 18px 6%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .vb-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.92);
+    }
+    .vb-item svg { width: 18px; height: 18px; opacity: 0.85; flex-shrink: 0; }
+    .vb-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.2); }
+
+    /* ═══════════════ SECTION HELPERS ═══════════════ */
+    .section-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--blue-mid);
+      background: var(--blue-light);
+      padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .section-tag.dark {
+      color: #8ba4ff; background: rgba(43,63,212,0.18);
+    }
+
+    .section-title {
+      font-family: var(--font-d);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800; letter-spacing: -1.5px;
+      line-height: 1.06;
+    }
+    .section-sub {
+      font-size: 16px; margin-top: 12px; line-height: 1.72;
+    }
+
+    /* ═══════════════ SERVICES ═══════════════ */
+    .services {
+      background: #fff;
+      padding: 96px 6%;
+      color: var(--text);
+    }
+    .services-top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 56px; gap: 24px;
+    }
+    .services-top .section-sub { color: var(--text-muted); max-width: 340px; }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    }
+
+    .svc-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 36px 28px;
+      background: #fff; position: relative; overflow: hidden;
+      transition: border-color .25s, box-shadow .25s, transform .2s;
+    }
+    .svc-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 12px 40px rgba(43,63,212,0.12);
+      transform: translateY(-3px);
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--blue);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .svc-card:hover::after { transform: scaleX(1); }
+
+    .svc-num {
+      position: absolute; top: 20px; right: 24px;
+      font-family: var(--font-d); font-size: 56px; font-weight: 800;
+      color: var(--blue-light); line-height: 1; user-select: none;
+    }
+
+    .svc-icon {
+      width: 52px; height: 52px;
+      background: var(--blue-light); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .svc-icon svg { width: 26px; height: 26px; }
+
+    .svc-card h3 {
+      font-family: var(--font-d); font-size: 21px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px; letter-spacing: -0.4px;
+    }
+    .svc-card p { font-size: 14px; color: var(--text-muted); line-height: 1.72; margin-bottom: 22px; }
+
+    .price-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue); color: #fff;
+      font-size: 12px; font-weight: 700;
+      padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 18px;
+    }
+    .price-badge svg { width: 13px; height: 13px; }
+
+    .svc-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-size: 11px; font-weight: 600; color: var(--blue);
+      background: var(--blue-light); padding: 4px 10px; border-radius: 4px;
+    }
+
+    /* ═══════════════ PROCESS ═══════════════ */
+    .process {
+      background: var(--dark-2);
+      padding: 96px 6%;
+      border-top: 1px solid var(--border-d);
+      border-bottom: 1px solid var(--border-d);
+    }
+    .process-head { text-align: center; margin-bottom: 64px; }
+    .process-head .section-title { color: #fff; }
+    .process-head .section-sub { color: var(--text-w2); max-width: 440px; margin: 12px auto 0; }
+
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0; max-width: 900px; margin: 0 auto;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 25px; left: 12.5%; right: 12.5%;
+      height: 1px; background: rgba(255,255,255,0.1);
+    }
+
+    .step { text-align: center; padding: 0 10px; }
+    .step-dot {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--dark-3);
+      border: 1.5px solid rgba(255,255,255,0.14);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; position: relative; z-index: 1;
+      transition: background .2s, border-color .2s;
+    }
+    .step:hover .step-dot { background: rgba(43,63,212,0.45); border-color: var(--blue-mid); }
+    .step-dot span {
+      font-family: var(--font-d); font-size: 17px; font-weight: 700;
+      color: rgba(255,255,255,0.6);
+    }
+    .step h4 {
+      font-family: var(--font-d); font-size: 15px; font-weight: 700;
+      color: #fff; margin-bottom: 6px;
+    }
+    .step p { font-size: 13px; color: var(--text-w3); line-height: 1.6; }
+
+    /* ═══════════════ WHY ═══════════════ */
+    .why {
+      background: #fff;
+      padding: 96px 6%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      color: var(--text);
+    }
+
+    .why-list { margin-top: 32px; display: flex; flex-direction: column; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .why-item:first-child { padding-top: 0; }
+    .why-item:last-child { border-bottom: none; }
+    .wi-icon {
+      flex-shrink: 0; width: 40px; height: 40px;
+      background: var(--blue-light); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .wi-icon svg { width: 20px; height: 20px; }
+    .why-item h4 {
+      font-family: var(--font-d); font-size: 16px; font-weight: 700;
+      color: var(--text); margin-bottom: 3px; letter-spacing: -0.2px;
+    }
+    .why-item p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* Blue panel */
+    .why-panel {
+      background: var(--blue); border-radius: 18px;
+      padding: 46px 38px; color: #fff;
+      position: relative; overflow: hidden;
+    }
+    .why-panel::before {
+      content: ''; position: absolute; top: -70px; right: -70px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    .why-panel::after {
+      content: ''; position: absolute; bottom: -50px; left: -50px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .wp-title {
+      font-family: var(--font-d); font-size: 26px; font-weight: 800;
+      letter-spacing: -0.8px; margin-bottom: 8px;
+    }
+    .wp-sub { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 32px; }
+    .wp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+    .wpstat {
+      background: rgba(255,255,255,0.1); border-radius: 10px; padding: 16px;
+    }
+    .wpstat-n {
+      font-family: var(--font-d); font-size: 26px; font-weight: 800;
+      line-height: 1; color: #fff;
+    }
+    .wpstat-l { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+    .wp-cta {
+      display: block; text-align: center;
+      background: #fff; color: var(--blue);
+      padding: 13px; border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+      position: relative; z-index: 1;
+    }
+    .wp-cta:hover { background: #EEF1FF; }
+
+    /* ═══════════════ AUTOMOTIVE STRIP ═══════════════ */
+    .auto-strip {
+      background: var(--dark-3);
+      padding: 70px 6%;
+      border-top: 1px solid var(--border-d);
+      border-bottom: 1px solid var(--border-d);
+    }
+    .auto-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .auto-text .section-title { color: #fff; }
+    .auto-text .section-sub { color: var(--text-w2); max-width: 420px; }
+    .auto-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .auto-chip {
+      font-size: 12px; font-weight: 600;
+      color: #8ba4ff; background: rgba(43,63,212,0.2);
+      border: 1px solid rgba(43,63,212,0.4);
+      padding: 5px 14px; border-radius: 50px;
+    }
+
+    .auto-specs {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .aspec {
+      background: var(--dark-4);
+      border: 1px solid var(--border-d);
+      border-radius: 10px; padding: 20px;
+    }
+    .aspec-label {
+      font-size: 11px; color: var(--text-w3);
+      letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .aspec-val {
+      font-family: var(--font-d); font-size: 22px; font-weight: 800;
+      color: var(--blue-mid);
+    }
+    .aspec-note { font-size: 12px; color: var(--text-w3); margin-top: 2px; }
+
+    /* ═══════════════ CONTACT ═══════════════ */
+    .contact {
+      background: var(--blue-pale);
+      border-top: 1px solid var(--border);
+      padding: 96px 6%;
+      color: var(--text);
+    }
+    .contact-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .contact-inner .section-title { letter-spacing: -1.5px; }
+    .contact-inner .section-sub { color: var(--text-muted); max-width: 460px; margin: 12px auto 0; }
+
+    .channels {
+      display: flex; justify-content: center; gap: 16px;
+      flex-wrap: wrap; margin: 44px 0 28px;
+    }
+    .ch {
+      display: flex; align-items: center; gap: 14px;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 10px; padding: 18px 26px;
+      text-decoration: none; color: var(--text);
+      box-shadow: 0 2px 8px rgba(14,17,32,0.06);
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+      min-width: 230px;
+    }
+    .ch:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(43,63,212,0.12);
+      transform: translateY(-2px);
+    }
+    .ch-ico {
+      width: 42px; height: 42px;
+      background: var(--blue-light); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ch-ico svg { width: 20px; height: 20px; color: var(--blue); }
+    .ch-lbl { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--text-light); text-transform: uppercase; }
+    .ch-val { font-size: 15px; font-weight: 600; color: var(--text); margin-top: 2px; }
+
+    .contact-note { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; }
+
+    /* ═══════════════ FOOTER ═══════════════ */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border-d);
+      padding: 28px 6%;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-w3);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand {
+      font-family: var(--font-d); font-size: 15px; font-weight: 700;
+      color: #fff; letter-spacing: -0.3px;
+    }
+
+    /* ═══════════════ RESPONSIVE ═══════════════ */
+    @media (max-width: 1050px) {
+      .why { grid-template-columns: 1fr; gap: 48px; }
+      .auto-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: repeat(2,1fr); gap: 36px; }
+      .steps-grid::before { display: none; }
+      .services-top { flex-direction: column; align-items: flex-start; }
+      .value-banner { gap: 18px; }
+      .vb-divider { display: none; }
+    }
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .hero-strip { flex-direction: column; }
+      .strip-item { border-right: none; border-bottom: 1px solid var(--border-d); }
+      .strip-item:last-child { border-bottom: none; }
+      .channels { flex-direction: column; align-items: center; }
+      .ch { min-width: auto; width: 100%; }
+      .wp-stats { grid-template-columns: 1fr; }
+      .auto-specs { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 6 L90 28 L90 72 L50 94 L10 72 L10 28 Z" stroke="#2B3FD4" stroke-width="8" fill="none" stroke-linejoin="round"/>
+      <circle cx="50" cy="50" r="7" fill="#2B3FD4"/>
+      <line x1="50" y1="50" x2="50" y2="21" stroke="#2B3FD4" stroke-width="7" stroke-linecap="round"/>
+      <line x1="50" y1="50" x2="23" y2="67" stroke="#2B3FD4" stroke-width="7" stroke-linecap="round"/>
+      <line x1="50" y1="50" x2="77" y2="67" stroke="#2B3FD4" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text"><span>Prime</span><span>Cut</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#automotive">Automotive</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Aluminium Machining Specialists</div>
+    <h1>Precision CNC<br>Machining for<br><em>Custom Needs</em></h1>
+    <p class="hero-sub">
+      High-accuracy aluminium machining with fast turnaround. From CAD design to finished part — we deliver precision you can trust, at prices that work for your budget.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Get a Quote
+      </a>
+      <a href="#contact" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Contact Us
+      </a>
+    </div>
+    <div class="hero-strip">
+      <div class="strip-item">
+        <div class="strip-num">±0.01mm</div>
+        <div class="strip-label">Machining Tolerance</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">100+</div>
+        <div class="strip-label">Jobs Completed</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">48 hr</div>
+        <div class="strip-label">Avg. Turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUE BANNER ── -->
+<div class="value-banner">
+  <div class="vb-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    Affordable Machining Rates
+  </div>
+  <div class="vb-divider"></div>
+  <div class="vb-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    No Minimum Order
+  </div>
+  <div class="vb-divider"></div>
+  <div class="vb-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Quote in 24 Hours
+  </div>
+  <div class="vb-divider"></div>
+  <div class="vb-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Quality Guaranteed
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="services-top">
+    <div>
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Three Services,<br>One Affordable Price</h2>
+    </div>
+    <p class="section-sub">Expert engineering work without the big-workshop price tag.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- CNC -->
+    <div class="svc-card">
+      <span class="svc-num">01</span>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+        </svg>
+      </div>
+      <h3>CNC Machining</h3>
+      <div class="price-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Competitive Price
+      </div>
+      <p>High-tolerance milling and turning for aluminium and other metals. Get precision parts machined at rates that won't break your project budget.</p>
+      <div class="svc-chips">
+        <span class="chip">3-Axis Milling</span>
+        <span class="chip">CNC Turning</span>
+        <span class="chip">Aluminium 6061</span>
+        <span class="chip">Aluminium 7075</span>
+        <span class="chip">Steel &amp; Brass</span>
+      </div>
+    </div>
+
+    <!-- 3D SCAN -->
+    <div class="svc-card">
+      <span class="svc-num">02</span>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v2M12 20v2M2 12H4M20 12h2"/>
+        </svg>
+      </div>
+      <h3>3D Scanning</h3>
+      <div class="price-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Affordable Rate
+      </div>
+      <p>Reverse engineer existing parts or inspect finished components — all at a fraction of what large metrology labs charge. Ideal for automotive parts duplication.</p>
+      <div class="svc-chips">
+        <span class="chip">Reverse Engineering</span>
+        <span class="chip">QC Inspection</span>
+        <span class="chip">Point Cloud</span>
+        <span class="chip">Mesh Output</span>
+        <span class="chip">GD&amp;T Report</span>
+      </div>
+    </div>
+
+    <!-- CAD -->
+    <div class="svc-card">
+      <span class="svc-num">03</span>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+          <path d="M13 14h5M13 17h5M6 14h1M6 17h1"/>
+        </svg>
+      </div>
+      <h3>CAD Drawing</h3>
+      <div class="price-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Low Cost Design
+      </div>
+      <p>Professional 2D and 3D CAD work for manufacturing and documentation — priced fairly so small workshops and individuals can afford quality drafting.</p>
+      <div class="svc-chips">
+        <span class="chip">2D Technical</span>
+        <span class="chip">3D Solid Model</span>
+        <span class="chip">SolidWorks</span>
+        <span class="chip">AutoCAD</span>
+        <span class="chip">STEP / DXF</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── AUTOMOTIVE FOCUS ── -->
+<section class="auto-strip" id="automotive">
+  <div class="auto-inner">
+    <div class="auto-text">
+      <div class="section-tag dark">Automotive Specialisation</div>
+      <h2 class="section-title">Built for the<br>Automotive Industry</h2>
+      <p class="section-sub">We specialise in aluminium machining for automotive applications — brackets, housings, adapters, custom engine components and more. If it's aluminium and it goes on a car, we can make it.</p>
+      <div class="auto-chips">
+        <span class="auto-chip">Engine Brackets</span>
+        <span class="auto-chip">Custom Adapters</span>
+        <span class="auto-chip">Suspension Parts</span>
+        <span class="auto-chip">Intake Manifolds</span>
+        <span class="auto-chip">Gear Housings</span>
+        <span class="auto-chip">Oil Catch Cans</span>
+        <span class="auto-chip">Heat Sinks</span>
+        <span class="auto-chip">Throttle Bodies</span>
+      </div>
+    </div>
+    <div class="auto-specs">
+      <div class="aspec">
+        <div class="aspec-label">Primary Material</div>
+        <div class="aspec-val">AL 6061-T6</div>
+        <div class="aspec-note">Most common automotive alloy</div>
+      </div>
+      <div class="aspec">
+        <div class="aspec-label">High-Strength Grade</div>
+        <div class="aspec-val">AL 7075-T6</div>
+        <div class="aspec-note">Aerospace-grade strength</div>
+      </div>
+      <div class="aspec">
+        <div class="aspec-label">Linear Tolerance</div>
+        <div class="aspec-val">±0.01mm</div>
+        <div class="aspec-note">Tight fits, every time</div>
+      </div>
+      <div class="aspec">
+        <div class="aspec-label">Surface Finish</div>
+        <div class="aspec-val">Ra 0.8µm</div>
+        <div class="aspec-note">Smooth bore-ready surface</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="process-head">
+    <div class="section-tag dark">How It Works</div>
+    <h2 class="section-title">Simple. Fast. Precise.</h2>
+    <p class="section-sub">Four steps from enquiry to finished part.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-dot"><span>01</span></div>
+      <h4>Send Your Brief</h4>
+      <p>Share drawings, a sample part, or sketches via email or WhatsApp.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"><span>02</span></div>
+      <h4>Get a Quote</h4>
+      <p>Receive a transparent, itemised quote within 24 hours — no hidden fees.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"><span>03</span></div>
+      <h4>We Machine It</h4>
+      <p>Production with in-process quality checks at every stage.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"><span>04</span></div>
+      <h4>Delivery</h4>
+      <p>Parts delivered on time, inspected, and exactly to your specification.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why" id="why">
+  <div>
+    <div class="section-tag">Why Prime Cut</div>
+    <h2 class="section-title">Precision Work<br>at Honest Prices</h2>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <h4>Cheaper Than Most Workshops</h4>
+          <p>Lower overhead means we pass the savings to you — without cutting corners on quality or tolerance.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <h4>Every Part Inspected</h4>
+          <p>All machined parts are checked against drawing tolerances before dispatch. No exceptions.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Fast Turnaround</h4>
+          <p>Rapid prototyping and short runs — because your project timeline matters.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2B3FD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Your Designs Stay Private</h4>
+          <p>Full confidentiality on all technical data and drawings. NDA available on request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-panel">
+    <p class="wp-title">Start Your Project Today</p>
+    <p class="wp-sub">Send us your file or sample. We'll respond with a quote and timeline within 24 hours.</p>
+    <div class="wp-stats">
+      <div class="wpstat">
+        <div class="wpstat-n">±0.01mm</div>
+        <div class="wpstat-l">CNC Tolerance</div>
+      </div>
+      <div class="wpstat">
+        <div class="wpstat-n">48 hrs</div>
+        <div class="wpstat-l">Avg. Turnaround</div>
+      </div>
+      <div class="wpstat">
+        <div class="wpstat-n">100+</div>
+        <div class="wpstat-l">Jobs Completed</div>
+      </div>
+      <div class="wpstat">
+        <div class="wpstat-n">Cheaper</div>
+        <div class="wpstat-l">Than Most Shops</div>
+      </div>
+    </div>
+    <a href="#contact" class="wp-cta">Request a Free Quote →</a>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-tag">Contact Us</div>
+    <h2 class="section-title">Let's Build<br>Something Together</h2>
+    <p class="section-sub">Send your drawing, sample part, or idea. We'll respond within 24 hours with a clear, affordable quote.</p>
+
+    <div class="channels">
+      <a href="tel:+6281234567890" class="ch">
+        <div class="ch-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.58-1.58a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ch-lbl">Phone / WhatsApp</div>
+          <div class="ch-val">+62 812-3456-7890</div>
+        </div>
+      </a>
+      <a href="mailto:info@primecut.id" class="ch">
+        <div class="ch-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ch-lbl">Email</div>
+          <div class="ch-val">info@primecut.id</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="contact-note">Or send your drawing directly:</p>
+    <a href="mailto:info@primecut.id?subject=Quote Request – Prime Cut" class="btn-primary" style="font-size:15px; padding:13px 30px;">
+      Send Your Drawing →
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="footer-brand">Prime Cut Engineering</div>
+    <div style="margin-top:4px;">CNC Machining · 3D Scanning · CAD Drawing</div>
+  </div>
+  <div>© 2025 Prime Cut. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
